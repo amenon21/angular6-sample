@@ -27,7 +27,8 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.source = new XYZ ({
       // Tiles from Mapbox (Light)
-      url: 'https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+      //url: 'https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+      url:'http://mt.google.com/vt/lyrs=m&x={x}&y={y}&z={z}'
     });
    
 
