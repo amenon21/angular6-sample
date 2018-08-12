@@ -8,18 +8,27 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
 
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle-group #group="matButtonToggleGroup" name="fontStyle" aria-label="Font Style" (change)="toggleNav(group.value)">
         <mat-button-toggle value="atol">Address to Lat Long</mat-button-toggle>
         <mat-button-toggle value="ltoa">Lat Long to Address</mat-button-toggle>
         
-      </mat-button-toggle-group>
+    </mat-button-toggle-group>
+      
     
-    <mat-nav-list>
+    <mat-nav-list *ngIf="myValue">
        
       <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
+
+        
+    <mat-nav-list *ngIf="otherValue">
+       
+        <a mat-list-item href="#">Link 1</a>
+        <a mat-list-item href="#">Link 2</a>
+        <a mat-list-item href="#">Link 3</a>
+      </mat-nav-list>
   </mat-sidenav>
   
   <mat-sidenav-content>
