@@ -23,9 +23,23 @@ export class SideNavComponent {
 
   toggleNav(value){
     console.log("value is" +value);
-    this.myValue=true;
-    console.log(this.myValue);
-    this.otherValue=true;
+    if(value=="ltoa"){
+      console.log("value in 1 "+value);
+      this.myValue=true;
+      this.otherValue=false;
+      console.log("myValue"+this.myValue);
+    }
+    else if(value=="atol"){
+      console.log("value in 2 "+value);
+      this.myValue=false;
+      this.otherValue=true;
+      console.log("myValue"+this.myValue);
+      console.log("otherValue"+this.otherValue);
+      
+    }
+    
+    
+    
   //show different panelsets based on value chosen
   }
   
