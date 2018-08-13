@@ -6,3 +6,13 @@
   width: 500px;
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
 }
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

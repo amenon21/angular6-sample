@@ -6,7 +6,7 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-toolbar color="primary">Latitude - Longitude Convertor</mat-toolbar>
 
     <mat-button-toggle-group #group="matButtonToggleGroup" name="fontStyle" aria-label="Font Style" (change)="toggleNav(group.value)">
         <mat-button-toggle value="atol">Address to Lat Long</mat-button-toggle>
@@ -16,24 +16,34 @@
       
     
     <mat-nav-list *ngIf="myValue">
-       
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <form class="example-form">  
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Search Address" value="Eg. UK">
+      </mat-form-field>
+      <button mat-raised-button color="primary">Search</button>
+      </form>
+     
     </mat-nav-list>
 
         
     <mat-nav-list *ngIf="otherValue">
-       
-        <a mat-list-item href="#">Link 1</a>
-        <a mat-list-item href="#">Link 2</a>
-        <a mat-list-item href="#">Link 3</a>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Latitude" value="Lat">
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Longitude" value="Long"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Search</button>
+      </form>
+     
       </mat-nav-list>
   </mat-sidenav>
   
   <mat-sidenav-content>
       
-    <mat-toolbar color="primary">
+  <!--  <mat-toolbar color="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -42,7 +52,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Application Title</span>
-    </mat-toolbar>
+     
+    </mat-toolbar>-->
   </mat-sidenav-content>
 </mat-sidenav-container>
