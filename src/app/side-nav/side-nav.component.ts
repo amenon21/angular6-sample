@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ApiService } from  '../api.service';
 
 
 @Component({
@@ -37,10 +38,24 @@ export class SideNavComponent {
       console.log("otherValue"+this.otherValue);
       
     }
+
+    
     
     
     
   //show different panelsets based on value chosen
   }
+
+  searchAddress(){
+     console.log("search address") 
+
+  }
+
+  public  getlldata(){
+    //this.apiService.getContacts().subscribe((data:  Array<object>) => {
+       // this.contacts  =  data;
+      //  console.log(data);
+   // });
+}
   
   }
