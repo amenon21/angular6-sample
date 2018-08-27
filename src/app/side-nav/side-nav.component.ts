@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiService } from  '../api.service';
+import { HttpClient} from  '@angular/common/http';
+import { Location } from '../location';
 
 
 @Component({
@@ -14,6 +16,9 @@ export class SideNavComponent {
 
   public myValue = false;
   public otherValue = false;
+  private  httpClient:  HttpClient;
+
+  private searchLatLongUrl  =  'https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=-34.44076&lon=-58.70521';
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -47,7 +52,8 @@ export class SideNavComponent {
   }
 
   searchAddress(){
-     console.log("search address") 
+     //console.log("search address") 
+     
 
   }
 
@@ -56,6 +62,12 @@ export class SideNavComponent {
        // this.contacts  =  data;
       //  console.log(data);
    // });
+}
+
+getLatLongResults (): Observable<Location> {
+  console.log("name"+Location.name);
+  return this.httpClient.get<Location>(this.searchLatLongUrl)
+  
 }
   
   }
