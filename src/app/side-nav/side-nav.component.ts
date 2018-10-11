@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiService } from  '../api.service';
+//import { ApiService } from  '../api.service';
 import { HttpClient} from  '@angular/common/http';
 import { Location } from '../location';
+import {ApiService} from '../api.service';
 
 
 @Component({
@@ -24,8 +25,8 @@ export class SideNavComponent {
     .pipe(
       map(result => result.matches)
     );
-    
-  constructor(private breakpointObserver: BreakpointObserver) {}
+
+constructor(private breakpointObserver: BreakpointObserver, private apiService: ApiService) {}
 
   toggleNav(value){
     console.log("value is" +value);
@@ -41,19 +42,19 @@ export class SideNavComponent {
       this.otherValue=true;
       console.log("myValue"+this.myValue);
       console.log("otherValue"+this.otherValue);
-      
+
     }
 
-    
-    
-    
-    
+
+
+
+
   //show different panelsets based on value chosen
   }
 
   searchAddress(){
-     //console.log("search address") 
-     
+     //console.log("search address")
+
 
   }
 
@@ -66,8 +67,15 @@ export class SideNavComponent {
 
 getLatLongResults (): Observable<Location> {
   console.log("name"+Location.name);
+
   return this.httpClient.get<Location>(this.searchLatLongUrl)
-  
+
 }
-  
+
+  getAddress(): void {
+  console.log("get Address");
+    this.apiService.getAddress()
+      .subscribe(data => console.log('address', data));
+  }
+
   }
